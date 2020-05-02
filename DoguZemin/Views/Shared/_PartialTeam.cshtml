@@ -1,0 +1,45 @@
+﻿@using BusinessLayer
+@using Entities
+
+@{ 
+    UserManager userManager = new UserManager();
+    List<Users> listUsers = userManager.List();
+}
+       <!-- ======= Team Section ======= -->
+<section id="team" class="team">
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+            <h2>Ekibimiz</h2>
+            <h4>Profesyonel Ekibimizle hizmetinizdeyiz</h4>
+        </div>
+
+        <div class="row">
+            @foreach (Users item in listUsers)
+            {
+                <div class="col-md-3">
+                    <div class="member" data-aos="zoom-in">
+                        <div class="member-img">
+                            <img src="~/images/user/@item.ProfilImage" class="img-fluid" alt="" width="600" height="600">
+                            <div class="social">
+                                <a href="@item.Twitter" target="_blank"><i class="icofont-twitter"></i></a>
+                                <a href="@item.Facebook" target="_blank"><i class="icofont-facebook"></i></a>
+                                <a href="@item.Instagram" target="_blank"><i class="icofont-instagram"></i></a>
+                                <a href="@item.Linkedin" target="_blank"><i class="icofont-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4 style="font-style:italic">@item.Name &nbsp; @item.Surname</h4>
+                            <span style="font-style:italic">@item.Degree</span>
+                            <p style="font-style:italic">@item.Task</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+        </div>
+
+    </div>
+</section><!-- End Team Section -->

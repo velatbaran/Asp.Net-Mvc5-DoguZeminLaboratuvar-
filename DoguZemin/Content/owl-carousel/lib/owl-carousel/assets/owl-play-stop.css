@@ -1,0 +1,114 @@
+﻿.owl-item > div img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+.owl-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+}
+
+.owl-carousel .owl-dots button {
+    background: rgba(0,0,0,0.6);
+    outline: none;
+    border: none;
+    padding: 3px !IMPORTANT;
+    border-radius: 50%;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+    .owl-carousel .owl-dots button span {
+        display: block;
+        padding: 4px;
+        background: transparent;
+        border-radius: 50%;
+        transition: all 200ms ease;
+    }
+
+    .owl-carousel .owl-dots button.active span {
+        background-color: #fff;
+    }
+
+.slider {
+    position: relative;
+}
+
+.controls {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    z-index: 9;
+}
+
+    .controls span {
+        background-color: rgba(255,255,255,0.5);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        display: inline-block;
+        text-transform: uppercase;
+        line-height: 50px;
+        text-align: center;
+        transition: all 300ms ease;
+        font-family: 'Oswald',sans-serif;
+    }
+
+        .controls span:hover {
+            background-color: #fff;
+        }
+
+        .controls span.stop {
+            margin-left: 5px;
+        }
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(15%,-50%);
+    padding: 15px 30px;
+    font-size: 40px;
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    transition: all 500ms ease-in;
+}
+
+.owl-item.active .caption {
+    transform: translate(0,-50%);
+}
+
+.owl-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 137px;
+}
+
+    .owl-nav button {
+        background-color: rgba(255,255,255,0.5) !important;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        text-align: center;
+        line-height: 50px !important;
+        outline: none;
+        transition: all 300ms ease;
+    }
+
+        .owl-nav button.owl-next {
+            margin-left: 5px;
+        }
+
+        .owl-nav button span {
+            font-size: 38px;
+            display: block;
+        }
+
+        .owl-nav button:hover {
+            background: #fff !important;
+        }

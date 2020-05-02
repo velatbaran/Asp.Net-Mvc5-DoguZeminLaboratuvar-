@@ -1,0 +1,15 @@
+﻿@using Entities
+@using BusinessLayer
+@using DoguZemin.Helper
+
+@{
+    AboutManager aboutManager = new AboutManager();
+    List<About> listAbout = aboutManager.List();
+}
+
+    <ul>
+        @foreach (About item in listAbout)
+        {
+            <li><a href="/Hakkimizda/@SeoHelper.ToSeoUrl(item.Title).ToLower()/@item.Id">@item.Title</a></li>
+        }
+    </ul>

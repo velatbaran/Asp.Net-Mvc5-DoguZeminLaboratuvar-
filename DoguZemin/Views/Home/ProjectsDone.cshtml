@@ -1,0 +1,44 @@
+﻿@using BusinessLayer
+@using Entities
+@using DoguZemin.Helper
+
+@{
+    ProjectsDoneManager projectsDoneManager = new ProjectsDoneManager();
+    IEnumerable<ProjectsDone> listProjectsDone = projectsDoneManager.ListQueryable().OrderByDescending(x => x.CreatedOn);
+}
+
+@{
+    ViewBag.Title = "ProjectsDone";
+}
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+            <h2>Referanslar</h2>
+            <h4>Şirket olarak başarılı bir şekilde bitirmiş olduğumuz çalışmalar</h4>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+            @foreach (ProjectsDone item in listProjectsDone)
+            {
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/images/projectsdone/@item.SlideImage1" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <div class="portfolio-links">
+                                <a href="~/images/projectsdone/@item.SlideImage1" data-gall="portfolioGallery" class="venobox" title="@item.Title"><i class="bx bx-plus"></i></a>
+                                <a href="/YapilanProjeDetay/@SeoHelper.ToSeoUrl(item.Title).ToLower()/@item.Id" title="Detay Göster"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            </div>
+
+    </div>
+</section><!-- End Portfolio Section -->

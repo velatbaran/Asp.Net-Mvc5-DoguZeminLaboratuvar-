@@ -1,0 +1,37 @@
+﻿@model Entities.ValueObjects.ForgetPassViewModel
+
+@{
+    ViewBag.Title = "ForgetPass";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <link href="~/Content/validation-summary.css" rel="stylesheet" />
+<!-- main content start-->
+
+@using (Html.BeginForm("ForgetPass", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div id="page-wrapper">
+        <div class="main-page login-page ">
+            <h3 class="title1">Şifre mi Unuttum Sayfası</h3>
+            <div class="widget-shadow">
+                <div class="login-top">
+                    <h4> Doğu Zemin Laboratuvar - Yeni Şifre Talep Etme !</h4>
+                    @Html.ValidationSummary(false)
+                    <strong style="color:#08d83f">@ViewBag.ShowMessage</strong>
+                </div>
+                <div class="login-body">
+                    <form>
+                        <input type="email" class="form-control" name="Email" placeholder="e-mail adresiniz.."/>
+                        <input type="submit" name="Gonder" value="Gönder">
+                        <hr />
+                        <a href="/Admin/Login" class="btn btn-default form-control">Giriş Sayfasına Dön</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+

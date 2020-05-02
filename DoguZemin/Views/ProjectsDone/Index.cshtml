@@ -1,0 +1,127 @@
+﻿@model IEnumerable<Entities.ProjectsDone>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <div class="tables">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Yapılan Proje Çalışmaları</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="/ProjectsDone/Create" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span>Yeni Proje</a>
+                    <table id="myTable" class="table table-responsive table-striped table-bordered table-hover panel-body widget-shadow" style="margin-top:10px">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Title)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Text)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.GiveJob)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Services.Title)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ProjectDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ProjectUrl)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SlideImage1)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SlideImage2)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SlideImage3)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Title)
+                                    </td>
+                                    <td>
+                                        @Html.Raw(item.Text)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.GiveJob)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Services.Title)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProjectDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProjectUrl)
+                                    </td>
+                                    <td>
+                                        <img src="~/images/projectsdone/@item.SlideImage1" class="img-responsive rounded-circle" width="256" height="256" />
+                                    </td>
+                                    <td>
+                                        <img src="~/images/projectsdone/@item.SlideImage2" class="img-responsive rounded-circle" width="256" height="256" />
+                                    </td>
+                                    <td>
+                                        <img src="~/images/projectsdone/@item.SlideImage3" class="img-responsive rounded-circle" width="256" height="256" />
+                                    </td>
+                                    <td>
+                                        <div class="col-md-2 text-right">
+                                            <div class="btn-group">
+                                                <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+                                                    <span class="glyphicon glyphicon-cog">&nbsp;</span>
+                                                    Seçenekler
+                                                    <span class="icon-cog icon-white"></span><span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="/ProjectsDone/Edit/@item.Id" title="Düzenle">
+                                                            <span class="glyphicon glyphicon-edit">&nbsp;</span>Düzenle
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/ProjectsDone/Details/@item.Id" title="Detay">
+                                                            <span class="glyphicon glyphicon-dashboard">&nbsp;</span>Detay
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/ProjectsDone/Delete/@item.Id" title="Sil" onclick="return confirm('Projeyi silmek istediğinize emin misiniz?')">
+                                                            <span class="glyphicon glyphicon-remove">&nbsp;</span>Sil
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+@Html.Partial("_PartialDataTables")
+

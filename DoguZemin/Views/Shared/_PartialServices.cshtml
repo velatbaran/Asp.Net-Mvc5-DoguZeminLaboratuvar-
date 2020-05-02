@@ -1,0 +1,47 @@
+﻿@using Entities
+@using BusinessLayer
+@using DoguZemin.Helper
+
+@{
+    ServicesManager servicesManager = new ServicesManager();
+    List<Services> listServices = servicesManager.List();
+}
+
+ @*======= Services Section =======*@ 
+<section id="services" class="services">
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+            <h2 style="font-style:italic">Faaliyet Alanları</h2>
+            <h4 style="font-style:italic">Şirket olarak çalışmakta olduğumuz faaliyet alanları</h4>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
+                <div class="div owl-carousel owl-theme">
+                    @foreach (Services item in listServices)
+                    {
+                        <img src="~/images/services/@item.ServicesImage" alt="" height="600" width="700">
+                    }
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                @foreach (Services item in listServices)
+                {
+                <div class="icon-box mt-3" data-aos="fade-up" data-aos-delay="100">
+                    <i class="bx bx-cube-alt"></i>
+                    <a href="/FaaliyetDetay/@SeoHelper.ToSeoUrl(item.Title).ToLower()/@item.Id" style="font-style:italic"><h3>@item.Title</h3></a>
+                    <h4 style="font-style:italic">@Html.Raw(item.Description.Substring(0, 100)) ....</h4>
+                    <a href="/FaaliyetDetay/@SeoHelper.ToSeoUrl(item.Title).ToLower()/@item.Id" style="font-style:italic"><small>Devamı...</small></a>
+                </div>
+                }
+            </div>
+
+
+        </div>
+        </div>
+</section> @*End Services Section*@ 
+
+
+

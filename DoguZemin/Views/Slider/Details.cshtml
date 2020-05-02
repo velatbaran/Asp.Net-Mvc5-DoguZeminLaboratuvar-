@@ -1,0 +1,74 @@
+﻿@model Entities.Slider
+
+@{
+    ViewBag.Title = "Slider Detay";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Slider Detay</h2>
+        <hr />
+    </div>
+
+    <div class="row">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Text)
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.Text
+               )
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SlideImage)
+            </dt>
+
+            <dd>
+                <img src="~/images/slide/@Model.SlideImage" class="img-responsive rounded-circle" width="64" height="64" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedUsername)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedUsername)
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10 col-md-offset-1">
+            <a href="/Slider/Edit/@Model.Id" class="btn btn-success"> <span class="glyphicon glyphicon-send"></span>Güncelle</a>
+            <a href="/Slider/Index" class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-left"></span>İptal</a>
+        </div>
+    </div>
+</div>

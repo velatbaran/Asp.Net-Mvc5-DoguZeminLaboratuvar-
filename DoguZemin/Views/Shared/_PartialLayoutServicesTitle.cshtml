@@ -1,0 +1,16 @@
+﻿@using Entities
+@using BusinessLayer
+@using DoguZemin.Helper
+
+@{
+    ServicesManager servicesManager = new ServicesManager();
+    List<Services> listServices = servicesManager.List();
+}
+
+<ul>
+    @foreach (Services item in listServices)
+    {
+        <li><a href="/FaaliyetDetay/@SeoHelper.ToSeoUrl(item.Title).ToLower()/@item.Id">@item.Title</a></li>
+    }
+</ul>
+

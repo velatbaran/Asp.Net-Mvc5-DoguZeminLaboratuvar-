@@ -1,0 +1,139 @@
+﻿@using Entities
+@using BusinessLayer
+
+
+@{
+    SliderManager sliderManager = new SliderManager();
+    List<Slider> sliderList = sliderManager.List();
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Doğu Zemin Laboratuvar - Anasayfa</title>
+    <meta content="Doğu Zemin Laboratuvar , Jeofizik, Mühendislik" name="descriptison">
+    <meta content="Doğu Zemin Laboratuvar , Jeofizik, Mühendislik,Zemin İyileştirme,Arazi,Sondaj,Geoteknik" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/images/logo/logo.jpeg" rel="icon">
+    <link href="~/images/logo/logo.jpeg" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/SiteTemplate/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/SiteTemplate/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/Content/SiteTemplate/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/SiteTemplate/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/Content/SiteTemplate/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Content/SiteTemplate/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/SiteTemplate/assets/css/style.css" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <!--Owl Carousel-->
+    <link rel="stylesheet" href="~/Content/owl-carousel/lib/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/owl-carousel/lib/owl-carousel/assets/owl.theme.default.min.css">
+    <link href="~/Content/owl-carousel/lib/owl-carousel/assets/owl-play-stop.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js"></script>
+    <script src="~/Content/owl-carousel/lib/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/Content/owl-carousel/lib/scripts.js"></script>
+</head>
+
+<body>
+    @*@Html.Partial("_PartialSlider");*@
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div class="hero-container">
+            <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+                <div class="slider">
+                    <div class="owl-carousel">
+                        @foreach (Slider item in sliderList)
+                        {
+                        <div>
+                            <img src="~/images/slide/@item.SlideImage" alt="@item.Title">
+                            <div class="caption">@item.Title</div>
+                            <div class="carousel-container" style="margin-top:250px">
+                                <div class="carousel-content">
+                                    <div>
+                                        <a href="" class="btn-book animated fadeIn">@Html.Raw(item.Text)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                        </div>
+                    <div class="controls">
+                        <span class="play">Play</span>
+                        <span class="stop">Stop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container">
+
+            <!-- The main logo is shown in mobile version only. The centered nav-logo in nav menu is displayed in desktop view  -->
+            <div class="logo d-block d-lg-none">
+                <a href="/Anasayfa"><img src="~/images/logo/logo.jpeg" class="img-responsive rounded-circle img-fluid"></a>
+            </div>
+
+            <nav class="nav-menu d-none d-lg-block">
+                <ul class="nav-inner">
+                    <li class="active"><a href="/Anasayfa">Anasayfa</a></li>
+                    <li class="drop-down">
+                        <a>Hakkımızda</a>
+                        @*<a href="/Home/About/4">Hakkımızda</a>*@ <!--TODO : incelenecek-->
+                        @Html.Partial("_PartialLayoutAboutTitle")
+                    </li>
+                    <li class="drop-down">
+                        <a>Faaliyet Alanları</a>
+                        @Html.Partial("_PartialLayoutServicesTitle")
+                    </li>
+                    <li class="nav-logo">
+                        <a href="/Anasayfa">
+                            <img src="~/images/logo/logo.jpeg" class="img-responsive rounded-circle img-fluid">
+                        </a>
+                    </li>
+
+                    <li><a href="/YapilanProjeler">Yapılan Çalışmalar</a></li>
+                    <li><a href="/Galeri">Galeri</a></li>
+                    <li><a href="/Iletisim">İletişim</a></li>
+                </ul>
+            </nav><!-- .nav-menu -->
+
+        </div>
+    </header><!-- End Header -->
+
+    @RenderBody()
+
+    @Html.Partial("_PartialFooter")
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/Content/SiteTemplate/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/SiteTemplate/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/SiteTemplate/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/Content/SiteTemplate/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/Content/SiteTemplate/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="~/Content/SiteTemplate/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="~/Content/SiteTemplate/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/Content/SiteTemplate/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/Content/SiteTemplate/assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/Content/SiteTemplate/assets/js/main.js"></script>
+
+</body>
+
+</html>

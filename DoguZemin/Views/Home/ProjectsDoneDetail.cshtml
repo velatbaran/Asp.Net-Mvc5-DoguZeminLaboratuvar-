@@ -1,0 +1,62 @@
+﻿@model Entities.ProjectsDone
+
+@{
+    ViewBag.Title = "ProjectsDoneDetail";
+}
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs" data-aos="fade-up">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Yapılan Projenin Detayları</h2>
+                <ol>
+                    <li><a href="/Anasayfa">Anasayfa</a></li>
+                    <li>Proje Detay</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details" data-aos="fade-up" data-aos-delay="100">
+        <div class="container">
+
+            <div class="portfolio-details-container">
+
+                <div class="owl-carousel portfolio-details-carousel">
+                    <img src="~/images/projectsdone/@Model.SlideImage1" class="img-fluid" alt="">
+                    <img src="~/images/projectsdone/@Model.SlideImage2" class="img-fluid" alt="">
+                    <img src="~/images/projectsdone/@Model.SlideImage3" class="img-fluid" alt="">
+                </div>
+
+                <div class="portfolio-info">
+                    <h3>Proje Bilgi</h3>
+                    <ul>
+                        <li><strong>Faaliyet Alanı : </strong>: @Model.Services.Title</li>
+                        <li><strong>İş Veren :</strong>: @Model.GiveJob</li>
+                        <li><strong>Proje Tarihi : </strong>: @Model.ProjectDate</li>
+                        <li><strong>Projec URL</strong>: <a href="@Model.ProjectUrl" target="_blank">@Model.ProjectUrl</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="portfolio-description">
+                <h2>@Model.Title</h2>
+                <p style="font-style:italic" class="text-justify">
+                    @Html.Raw(Model.Text)
+                </p>
+            </div>
+
+        </div>
+
+    </section><!-- End Portfolio Details Section -->
+    <br />
+
+    @Html.Partial("_PartialBottomProjectsDone");
+
+
+
+</main><!-- End #main -->

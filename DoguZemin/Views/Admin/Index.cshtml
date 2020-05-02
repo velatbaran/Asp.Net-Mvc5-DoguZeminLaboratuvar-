@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Yonetim Paneli";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- main content start-->
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <div class="row-one">
+            <div class="col-md-4 widget">
+                <div class="stats-left ">
+                    <h4>Toplam</h4>
+                    <h5>Faaliyet Alanı</h5>
+                </div>
+                <div class="stats-right">
+                    <label>@ViewBag.ServicesCount</label>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="col-md-4 widget states-mdl">
+                <div class="stats-left">
+                    <h4>Toplam</h4>
+                    <h5>Kullanıcılar</h5>
+                </div>
+                <div class="stats-right">
+                    <label> @ViewBag.UserCount</label>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="col-md-4 widget states-last">
+                <div class="stats-left">
+                    <h4>Yapılan</h4>
+                    <h5>Toplam Projeler</h5>
+                </div>
+                <div class="stats-right">
+                    <label>@ViewBag.ProjectsDoneCount</label>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>

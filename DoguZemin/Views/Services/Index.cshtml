@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Entities.Services>
+
+@{
+    ViewBag.Title = "Faaliyet Alanı";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <div class="tables">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Faaliyet Alanları</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="/Services/Create" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>Yeni Faaliyet Alanı</a>
+                    <table id="myTable" class="table table-responsive table-striped table-bordered table-hover panel-body widget-shadow" style="margin-top:10px">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Title)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ServicesImage)
+                                </th>
+                                @*<th>
+                                        @Html.DisplayNameFor(model => model.CreatedOn)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ModifiedOn)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ModifiedUsername)
+                                    </th>*@
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Title)
+                                    </td>
+                                    <td>
+                                        @Html.Raw(item.Description)
+                                    </td>
+                                    <td>
+                                        <img src="~/images/services/@item.ServicesImage" class="img-responsive rounded-circle" width="256" height="256" />
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.CreatedOn)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ModifiedOn)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ModifiedUsername)
+                                        </td>*@
+                                    <td>
+                                        <div class="col-md-2 text-right">
+                                            <div class="btn-group">
+                                                <a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#">
+                                                    <span class="glyphicon glyphicon-cog">&nbsp;</span>
+                                                    Seçenekler
+                                                    <span class="icon-cog icon-white"></span><span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="/Services/Edit/@item.Id" title="Düzenle">
+                                                            <span class="glyphicon glyphicon-edit">&nbsp;</span>Düzenle
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Services/Details/@item.Id" title="Detay">
+                                                            <span class="glyphicon glyphicon-dashboard">&nbsp;</span>Detay
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Services/Delete/@item.Id" title="Sil" onclick="return confirm('Faaliyeti silmek istediğinize emin misiniz?')">
+                                                            <span class="glyphicon glyphicon-remove">&nbsp;</span>Sil
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+@Html.Partial("_PartialDataTables")

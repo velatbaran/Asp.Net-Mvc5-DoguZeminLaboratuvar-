@@ -1,0 +1,63 @@
+﻿@using Entities
+@using BusinessLayer
+
+@{ 
+    ContactManager cm = new ContactManager();
+    List<Contact> contactList = cm.List();
+}
+<!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        @foreach (Contact c in contactList)
+        {
+            <div class="footer-top">
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="/Home/Index" class="scrollto footer-logo"><img src="~/images/logo/logo.jpeg" class="img-responsive rounded-circle img-fluid"></a>
+                            <h3>Doğu Zemin Laboratuvar</h3>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:20px">
+                        <div class="col-lg-4 col-md-6 info">
+                            <i class="icofont-google-map"></i>
+                            <h4>Konum</h4>
+                            <h5>@c.Addresses</h5>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 info mt-4 mt-lg-0">
+                            <i class="icofont-envelope"></i>
+                            <h4>Email:</h4>
+                            <h5>@c.Email<br></h5>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 info mt-4 mt-lg-0">
+                            <i class="icofont-phone"></i>
+                            <h4>Telefon:</h4>
+                            <h5>@c.Phone1<br>@c.Phone2</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="@c.Twitter" class="twitter" target="_blank"><i class="bx bxl-twitter"></i></a>
+                    <a href="@c.Instagram" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
+                    <a href="@c.Linkedin" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                    <a href="@c.Youtube" class="youtube" target="_blank"><i class="bx bxl-youtube"></i></a>
+                </div>
+
+            </div>
+        }
+
+
+        <div class="container footer-bottom clearfix">
+            <div class="copyright">
+                @DateTime.Now.Year&copy;<strong><span>Doğu Zemin Laboratuvar</span></strong>. Tüm Hakları Saklıdır.
+            </div>
+            <div class="credits">
+                <a href="https://wbsoftware.somee.com/">WBSoftware</a>Tarafından Hazırlandı.
+            </div>
+        </div>
+    </footer><!-- End Footer -->

@@ -1,0 +1,29 @@
+﻿@using Entities
+@model Services
+
+@{
+    ViewBag.Title = "Services";
+}
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-9" data-aos="fade-left">
+                <div>
+                    <img src="~/images/services/@Model.ServicesImage" class="img-fluid img-responsive" width="500" height="500"/>
+                </div>
+                <div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 " style="margin-top:25px">
+                    <h3 style="margin-bottom:5px"><a href="">@Model.Title</a></h3>
+                    <p class="text-justify" style="font-size:18px;font-style:italic">
+                        @Html.Raw(Model.Description)
+                    </p>
+                </div>
+            </div>
+            
+            @Html.Partial("_PartialServicesTitle")
+
+        </div>
+    </div>
+</section><!-- End About Us Section -->
